@@ -17,7 +17,7 @@
 </div>
 <div id="tags">
 	<ul id="taglist">
-		<li><a id="all" href="#">show all</a></li>
+		<li><a id="*" href="#">show all</a></li>
 	</ul>
 	<div class="clear"></div>
 </div>
@@ -25,7 +25,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="js/flickr.js"></script>
 
 <script>
@@ -33,16 +33,7 @@ $(document).ready(function() {
 	// assign js to the filters
 	$("#taglist li a").live("click", function(event) {
 		var activeTag = $(this).attr("id");
-		if (activeTag != "all")
-		{
-		$("#container .item:not(." + activeTag + ")").hide(function() {
-			$("#container .item." + activeTag).show();
-			$("#container").masonry("reload");
-		});
-		} else {
-			$("#container .item.").show();
-			$("#container").masonry("reload");
-		}
+		$("#container").isotope({ filter: activeTag });
 	});
 });
 </script>

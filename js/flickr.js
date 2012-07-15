@@ -39,15 +39,14 @@ $.getJSON(_APIURL,
 
 		// Build up the list of tags for filtering
     for(var i =0; i<tags.length; i++){
-    	$("ul#taglist").append("<li><a href='#' id=" +  tags[i] + ">" + tags[i] + "</a>");
+    	$("ul#taglist").append("<li><a href='#' id='." +  tags[i] + "''>" + tags[i] + "</a>");
     }     
 
     // Run Masonry
     $("#container").imagesLoaded( function() { 
-        $('#container').masonry({
+        $('#container').isotope({
 	    	itemSelector : '.item',
-	    	isAnimated: true,
-		  	animationOptions: {
+	    	animationOptions: {
 		    	duration: 750,
 		    	easing: 'linear',
 		    	queue: false
