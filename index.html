@@ -37,17 +37,17 @@
 
       		});
 
-	        $('#container').masonry({
-		    	itemSelector : '.item',
-		    	isAnimated: true,
-			  	animationOptions: {
-			    	duration: 750,
-			    	easing: 'linear',
-			    	queue: false
-				}	
-  			});
-	        console.info("reloaded");
-	        $('#container').masonry("reload");
+	        $("#container").imagesLoaded( function() { 
+		        $('#container').masonry({
+			    	itemSelector : '.item',
+			    	isAnimated: true,
+				  	animationOptions: {
+				    	duration: 750,
+				    	easing: 'linear',
+				    	queue: false
+					}	
+				});
+		    });
     });
 
 	</script>
@@ -59,7 +59,6 @@
 <p>I kind of hate flickr's website.  Why does the "loading" icon never stop? I'd rather have an easier means of getting to the photos of food I'm uploading from my iPhone.</p>
 <p>This is wonky; specifically the overlapping photos. Resize the browser until the pictures shift and they'll all show.  It's also all kinds of FUBAR on mobile.</p>
 <p>There's potential here -- currently grabbing the description in JSON but not using it.  For other parameters, see this <a href="http://code.flickr.com/blog/2008/08/19/standard-photos-response-apis-for-civilized-age/">documentation.</a></p>
-<p>Also look into using <a href="http://isotope.metafizzy.co/docs/introduction.html">isotope</a> instead of masonry.</p>
 
 <div id="container">
 </div>
