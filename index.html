@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>dan is eating</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+	
+	<script>
+	
+	var _KEY = "1684af1009448d6b66290bd7dedac4e3";
+	var _USERID = "80451209@N04";
+	var _APIURL = "https://secure.flickr.com/services/rest/?method=flickr.people.getPublicPhotos";
+	
+	$.getJSON(_APIURL, 
+		{
+			format: "json",
+			nojsoncallback: 1,
+			api_key: _KEY,
+			user_id: _USERID,
+			extras: "description"
+		}, function(data) {
+			var photos = data.photos;
+	        $.each(data.photos.photo, function() {
+	        	var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
+	        	var imgtag = $("<img/>").attr({
+	        		"src": img_src,
+	        		"title": this.title
+	        	});
+
+	        	var label = $("<span>").attr({"class":"label"}).append(this.title);
+
+	        	$("<div>").attr({"class":"item"}).append(label).append(imgtag).appendTo("#container");
+
+      		});
+
+	        $('#container').masonry({
+		    	itemSelector : '.item',
+		    	isAnimated: true,
+			  	animationOptions: {
+			    	duration: 750,
+			    	easing: 'linear',
+			    	queue: false
+				}	
+  			});
+	        console.info("reloaded");
+	        $('#container').masonry("reload");
+    });
+
+	</script>
+
+</head>
+<body>
+
+<h1>dan is eating</h1>
+<span>This is wonky. Resize the browser until the pictures shift and they'll all show.</span>
+
+<div id="container">
+</div>
+
+
+
+</body>
+</html>

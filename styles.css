@@ -1,0 +1,27 @@
+
+body {  
+	background: url("img/bg_plaid.png") repeat scroll 0 0 transparent; 
+	color: #000; 
+	font-family: "Helvetica Neue", Helvetica;
+	margin-left: 40px;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 32px;
+}
+
+div#container { 
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+div#container .item {
+  width: 260px;
+  margin: 2px;
+  float: left;
+}
+
+.item span.label {
+	font-size: 12px;
+}
