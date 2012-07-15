@@ -3,25 +3,82 @@ body {
 	background: url("img/bg_plaid.png") repeat scroll 0 0 transparent; 
 	color: #000; 
 	font-family: "Helvetica Neue", Helvetica;
-	margin-left: 40px;
+	margin: 0px 0px 0px 20px;
+}
+
+div#header { 
+	border-left: 3px solid #999; 
+	border-bottom: 3px solid #999;
+	padding: 0px 0px 10px 20px;
+}
+
+div#header p {
+	margin: 10px 0;
+	font-size: 14px;
 }
 
 h1 {
 	text-transform: uppercase;
 	font-size: 32px;
+	margin: 0;
+	padding: 0;
+}
+
+div#tags {
+}
+
+div#tags ul li {
+	display: inline;
+	float: left; 
+	list-style-type: none; 
+	margin-left: 15px; 
+}
+
+div#tags ul li:first-child {
+	margin-left: 0px;
+}
+
+div#tags ul li a {
+    background: none repeat scroll 0 0 #E3E3E3;
+    border: 1px solid #BBBBBB;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px 1px #F6F6F6 inset;
+    color: #333333;
+    font: bold 12px/1 "helvetica neue",helvetica,arial,sans-serif;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 150px;
+    text-decoration: none;
+}
+div#tags ul li a:hover {
+    background: none repeat scroll 0 0 #D9D9D9;
+    box-shadow: 0 0 1px 1px #EAEAEA inset;
+    color: #222222;
+    cursor: pointer;
+}
+div#tags ul li a:active {
+    background: none repeat scroll 0 0 #D0D0D0;
+    box-shadow: 0 0 1px 1px #E3E3E3 inset;
+    color: #000000;
 }
 
 div#container { 
-	margin-top: 20px;
-	margin-left: 40px;
+	margin-top: 10px;
 }
 
 div#container .item {
-  width: 260px;
-  margin: 2px;
-  float: left;
+	max-width: 260px;
+	margin: 2px;
+	padding: 6px;
+	float: left;
+	text-align: center;
 }
 
 .item span.label {
 	font-size: 12px;
+}
+
+.clear { 
+	clear: both;
 }
