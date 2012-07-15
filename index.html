@@ -6,75 +6,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>dan is eating</title>
 	<link rel="stylesheet" href="styles.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-	
-	<script>
-	
-	var _KEY = "1684af1009448d6b66290bd7dedac4e3";
-	var _USERID = "80451209@N04";
-	var _APIURL = "https://secure.flickr.com/services/rest/?method=flickr.people.getPublicPhotos";
-	
-	$.getJSON(_APIURL, 
-		{
-			format: "json",
-			nojsoncallback: 1,
-			api_key: _KEY,
-			user_id: _USERID,
-			extras: "description, tags"
-		}, function(data) {
-			var photos = data.photos;
-			var tags = [];
-
-	        $.each(data.photos.photo, function() {
-	        	// Parse out various HTML components
-	        	var img_url = "http://www.flickr.com/photos/daniseating/" + this.id + "/in/photostream";
-	        	var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
-	        	var imgtag = $("<img/>").attr({
-	        		"src": img_src,
-	        		"title": this.description._content
-	        	});
-
-	        	imgtag = $("<a>").attr({"href":img_url, "target":"_blank", "title":"View this photo on flickr"}).append(imgtag);
-
-	        	var label = $("<span>").attr({"class":"label"}).append(this.title);
-	        	if (jQuery.inArray(this.tags, tags) == -1 && this.tags != "")
-	        	{
-	        		tags.push(this.tags);
-	        	}
-
-	        	$("<div>").attr({"class":"item " + this.tags}).append(label).append("<br/>").append(imgtag).appendTo("#container");
-  			});
-
-  		// Build up the list of tags for filtering
-        for(var i =0; i<tags.length; i++){
-        	$("ul#taglist").append("<li><a href='#' id=" +  tags[i] + ">" + tags[i] + "</a>");
-        }     
-
-        // Run Masonry
-        $("#container").imagesLoaded( function() { 
-	        $('#container').masonry({
-		    	itemSelector : '.item',
-		    	isAnimated: true,
-			  	animationOptions: {
-			    	duration: 750,
-			    	easing: 'linear',
-			    	queue: false
-				}	
-			});
-	    });
-    });
-
-	</script>
-
 </head>
 <body>
 
 <div id="header">
 <h1>dan is eating</h1>
 <p>I kind of hate flickr's website.  I'd rather have an easier means of getting to the photos of food I'm uploading from my iPhone.</p>
-<p>Using the <a href="https://secure.flickr.com/services/api/" title="flickr API" target="_blank">flickr API</a> and the <a href="http://masonry.desandro.com/index.html" target="_blank">jQuery Masonry library</a> for the pinterest-style layout below.</p>
-<p>Hover an image to view it's description.  Click it to open it on flickr in a new window, primarily to see it in a higher resolution.</p>
+<p>Using the <a href="https://secure.flickr.com/services/api/" title="flickr API" target="_blank">flickr API</a> and the <a href="http://masonry.desandro.com/index.html" target="_blank">jQuery Masonry library</a> for the pinterest-esque layout below.</p>
+<p>Hover an image to view its description.  Click it to open it on flickr in a new window, primarily to see it in a higher resolution.  Use the tags to filter.</p>
 </div>
 <div id="tags">
 	<ul id="taglist">
@@ -85,7 +24,28 @@
 <div id="container">
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="js/flickr.js"></script>
 
+<script>
+$(document).ready(function() {
+	// assign js to the filters
+	$("#taglist li a").live("click", function(event) {
+		var activeTag = $(this).attr("id");
+		if (activeTag != "all")
+		{
+		$("#container .item:not(." + activeTag + ")").hide(function() {
+			$("#container .item." + activeTag).show();
+			$("#container").masonry("reload");
+		});
+		} else {
+			$("#container .item.").show();
+			$("#container").masonry("reload");
+		}
+	});
+});
+</script>
 
 </body>
 </html>
