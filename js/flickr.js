@@ -1,6 +1,6 @@
 // 1. Call the flickr API 
 // 2. Parse results from JSON into HTML elements
-// 3. Run masonry over HTML to generate pinterest-style layout
+// 3. Run isotope over HTML to generate pinterest-style layout
 
 var _KEY = "1684af1009448d6b66290bd7dedac4e3";
 var _USERID = "80451209@N04";
@@ -37,12 +37,12 @@ $.getJSON(_APIURL,
         	$("<div>").attr({"class":"item " + this.tags}).append(label).append("<br/>").append(imgtag).appendTo("#container");
 			});
 
-		// Build up the list of tags for filtering
+	// Build up the list of tags for filtering
     for(var i =0; i<tags.length; i++){
     	$("ul#taglist").append("<li><a href='#' id='." +  tags[i] + "''>" + tags[i] + "</a>");
     }     
 
-    // Run Masonry
+    // Run isotope
     $("#container").imagesLoaded( function() { 
         $('#container').isotope({
 	    	itemSelector : '.item',
