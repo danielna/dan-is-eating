@@ -36,6 +36,10 @@ $(document).ready(function() {
 		var activeTag = $(this).attr("id");
 		$("#container").isotope({ filter: activeTag });
 	});
+
+	$("div.item a").live("mouseenter", function() {
+		$(this).next('.label').slideDown('slow');
+	});
 });
 </script>
 

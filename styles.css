@@ -25,6 +25,7 @@ h1 {
 }
 
 div#tags {
+  margin-bottom: 20px;
 }
 
 div#tags ul li {
@@ -68,15 +69,25 @@ div#container {
 }
 
 div#container .item {
-	max-width: 260px;
+	max-width: 240px;
 	margin: 2px;
-	padding: 6px;
 	float: left;
 	text-align: center;
 }
 
-.item span.label {
-	font-size: 12px;
+.item p.label {
+	color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: -60px;
+  margin-left: 25px;
+  padding: 0;
+  display: none;
+  max-width: 205px;
+  text-align: left;
+  text-shadow: 1px 2px 5px #000000;
+  filter: dropshadow(color=#000000, offx=1, offy=2);
+
 }
 
 .clear { 

@@ -21,20 +21,26 @@ $.getJSON(_APIURL,
         	// Parse out various HTML components
         	var img_url = "http://www.flickr.com/photos/daniseating/" + this.id + "/in/photostream";
         	var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
-        	var imgtag = $("<img/>").attr({
+            
+            // var randomNumber = Math.random();
+            // if (randomNumber <= 0.25) {
+            //     img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + ".jpg";
+            // }
+        	
+            var imgtag = $("<img/>").attr({
         		"src": img_src,
         		"title": this.description._content
         	});
 
         	imgtag = $("<a>").attr({"href":img_url, "target":"_blank", "title":"View this photo on flickr"}).append(imgtag);
 
-        	var label = $("<span>").attr({"class":"label"}).append(this.title);
+        	var label = $("<p>").attr({"class":"label"}).append(this.title);
         	if (jQuery.inArray(this.tags, tags) == -1 && this.tags != "")
         	{
         		tags.push(this.tags);
         	}
 
-        	$("<div>").attr({"class":"item " + this.tags}).append(label).append("<br/>").append(imgtag).appendTo("#container");
+        	$("<div>").attr({"class":"item " + this.tags}).append(imgtag).append(label).appendTo("#container");
 			});
 
 	// Build up the list of tags for filtering
