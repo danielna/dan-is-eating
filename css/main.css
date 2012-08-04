@@ -1,24 +1,51 @@
 /* line 1, ../sass/main.sass */
-body {
-  background: url(img/bg_plaid.png) repeat scroll 0 0 transparent;
-  color: black;
-  font-family: "Helvetica Neue", Helvetica;
-  margin: 0px 0px 0px 20px;
+html {
+  background-color: black;
 }
 
-/* line 7, ../sass/main.sass */
-div#header {
-  border-left: 3px solid #999999;
-  border-bottom: 3px solid #999999;
-  padding: 0px 0px 10px 20px;
+/* line 4, ../sass/main.sass */
+body {
+  background: url(../img/bg_plaid.png) repeat scroll 0 0 white;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica;
+  width: 990px;
+  padding: 0px 20px;
+  margin: 0px auto;
+  position: relative;
 }
-/* line 11, ../sass/main.sass */
+/* line 12, ../sass/main.sass */
+body #ralph {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* line 19, ../sass/main.sass */
+div#header {
+  position: relative;
+  display: none;
+  border-left: 3px solid #999999;
+  border-right: 3px solid #999999;
+  border-bottom: 3px solid #999999;
+  padding: 10px 20px;
+}
+/* line 26, ../sass/main.sass */
 div#header p {
   margin: 10px 0;
   font-size: 14px;
 }
+/* line 29, ../sass/main.sass */
+div#header a#collapse {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-/* line 15, ../sass/main.sass */
+/* line 36, ../sass/main.sass */
 h1 {
   text-transform: uppercase;
   font-size: 32px;
@@ -26,22 +53,22 @@ h1 {
   padding: 0;
 }
 
-/* line 21, ../sass/main.sass */
+/* line 42, ../sass/main.sass */
 div#tags {
   margin-bottom: 20px;
 }
-/* line 23, ../sass/main.sass */
+/* line 44, ../sass/main.sass */
 div#tags ul li {
   display: inline;
   float: left;
   list-style-type: none;
   margin-left: 15px;
 }
-/* line 28, ../sass/main.sass */
+/* line 49, ../sass/main.sass */
 div#tags ul li:first-child {
   margin-left: 0px;
 }
-/* line 30, ../sass/main.sass */
+/* line 51, ../sass/main.sass */
 div#tags a {
   background: none repeat scroll 0 0 #e3e3e3;
   border: 1px solid #bbbbbb;
@@ -55,64 +82,81 @@ div#tags a {
   width: 150px;
   text-decoration: none;
 }
-/* line 42, ../sass/main.sass */
+/* line 63, ../sass/main.sass */
 div#tags a:hover {
   background: none repeat scroll 0 0 #d9d9d9;
   box-shadow: 0 0 1px 1px #eaeaea inset;
   color: #222222;
   cursor: pointer;
 }
-/* line 47, ../sass/main.sass */
+/* line 68, ../sass/main.sass */
 div#tags a:active {
   background: none repeat scroll 0 0 #d0d0d0;
   box-shadow: 0 0 1px 1px #e3e3e3 inset;
   color: black;
 }
 
-/* line 52, ../sass/main.sass */
+/* line 73, ../sass/main.sass */
 div#container {
   margin-top: 10px;
+  width: 1000px;
 }
-/* line 54, ../sass/main.sass */
+/* line 76, ../sass/main.sass */
 div#container .item {
-  max-width: 240px;
-  margin: 2px;
+  min-width: 240px;
+  margin: 0px 10px 10px 0px;
   float: left;
-  text-align: center;
+  position: relative;
 }
-/* line 59, ../sass/main.sass */
+/* line 81, ../sass/main.sass */
 div#container .item p.label {
+  position: absolute;
+  display: none;
+  bottom: 4px;
+  margin: 0px;
+  padding: 5px 0px 10px 10px;
+  width: 230px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* line 90, ../sass/main.sass */
+div#container .item p.label span {
+  max-width: 205px;
   color: white;
   font-size: 16px;
   font-weight: 600;
-  margin-top: -60px;
-  margin-left: 25px;
-  padding: 0;
-  display: none;
-  max-width: 205px;
   text-align: left;
   text-shadow: 1px 2px 5px black;
   filter: dropshadow(color=black, offx=1, offy=2);
 }
+/* line 98, ../sass/main.sass */
+div#container .item a {
+  display: block;
+  text-align: center;
+}
+/* line 101, ../sass/main.sass */
+div#container .item a img {
+  margin: 0 auto;
+}
 
-/* line 72, ../sass/main.sass */
+/* line 104, ../sass/main.sass */
 .clear {
   clear: both;
 }
 
-/* line 75, ../sass/main.sass */
+/* line 107, ../sass/main.sass */
 .isotope-item {
   z-index: 2;
 }
 
-/* line 78, ../sass/main.sass */
+/* line 110, ../sass/main.sass */
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
 }
 
 /*** Isotope CSS3 transitions *** */
-/* line 84, ../sass/main.sass */
+/* line 116, ../sass/main.sass */
 .isotope, .isotope .isotope-item {
   -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
@@ -121,7 +165,7 @@ div#container .item p.label {
   transition-duration: 0.8s;
 }
 
-/* line 92, ../sass/main.sass */
+/* line 124, ../sass/main.sass */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -130,7 +174,7 @@ div#container .item p.label {
   transition-property: height, width;
 }
 
-/* line 100, ../sass/main.sass */
+/* line 132, ../sass/main.sass */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -140,7 +184,7 @@ div#container .item p.label {
 }
 
 /*** disabling Isotope CSS3 transitions *** */
-/* line 110, ../sass/main.sass */
+/* line 142, ../sass/main.sass */
 .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
   -webkit-transition-duration: 0s;
   -moz-transition-duration: 0s;

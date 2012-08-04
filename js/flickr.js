@@ -28,8 +28,9 @@ $.getJSON(_APIURL,
         	});
 
         	imgtag = $("<a>").attr({"href":img_url, "target":"_blank", "title":"View this photo on flickr"}).append(imgtag);
-
-        	var label = $("<p>").attr({"class":"label"}).append(this.title);
+            
+            var span = $("<span>").append(this.title);
+        	var label = $("<p>").attr({"class":"label"}).append(span);
         	if (jQuery.inArray(this.tags, tags) == -1 && this.tags != "")
         	{
         		tags.push(this.tags);
