@@ -20,7 +20,7 @@ $.getJSON(_APIURL,
         $.each(data.photos.photo, function() {
         	// Parse out various HTML components
         	var img_url = "http://www.flickr.com/photos/daniseating/" + this.id + "/in/photostream";
-        	var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
+            var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
                    	
             var imgtag = $("<img/>").attr({
         		"src": img_src,
