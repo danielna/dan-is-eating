@@ -2,57 +2,74 @@
 // 2. Parse results from JSON into HTML elements
 // 3. Run isotope over HTML to generate pinterest-style layout
 
-var _KEY = "1684af1009448d6b66290bd7dedac4e3";
-var _USERID = "80451209@N04";
-var _APIURL = "https://secure.flickr.com/services/rest/?method=flickr.people.getPublicPhotos";
+var flickr = {};
 
-$.getJSON(_APIURL, 
+flickr.ajaxParams = {
+    key: "1684af1009448d6b66290bd7dedac4e3",
+    user_id: "80451209@N04",
+    api_url: "https://secure.flickr.com/services/rest/?method=flickr.people.getPublicPhotos"
+};
+
+// Render the image template using handlebars.js
+flickr.imageBox = function(photo) {
+    this.url = "http://www.flickr.com/photos/daniseating/" + photo.id + "/in/photostream";
+    this.src = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "m.jpg";
+    this.title = photo.title;
+    this.description = photo.description._content;
+    this.tags = photo.tags;
+
+    var image_template =
+        '<div class="item {{tags}}">' +
+            '<a href="{{url}}" target="_blank" title="View this photo on flickr">' +
+                '<img src="{{{src}}}" title="{{description}}" />' +
+            '</a>' +
+            '<p class="label">' +
+                '<span>{{{title}}}</span>' +
+            '</p>' +
+        '</div>';
+
+    this.build = function() {
+        var renderBox = Handlebars.compile(image_template);
+        return renderBox(this);
+    };
+};
+
+$.getJSON(flickr.ajaxParams.api_url, 
 	{
 		format: "json",
 		nojsoncallback: 1,
-		api_key: _KEY,
-		user_id: _USERID,
+		api_key: flickr.ajaxParams.key,
+		user_id: flickr.ajaxParams.user_id,
 		extras: "description, tags"
 	}, function(data) {
-		var photos = data.photos;
 		var tags = [];
 
         $.each(data.photos.photo, function() {
-        	// Parse out various HTML components
-        	var img_url = "http://www.flickr.com/photos/daniseating/" + this.id + "/in/photostream";
-            var img_src = "http://farm" + this.farm + ".static.flickr.com/" + this.server + "/" + this.id + "_" + this.secret + "_" + "m.jpg";
-                   	
-            var imgtag = $("<img/>").attr({
-        		"src": img_src,
-        		"title": this.description._content
-        	});
-
-        	imgtag = $("<a>").attr({"href":img_url, "target":"_blank", "title":"View this photo on flickr"}).append(imgtag);
             
-            var span = $("<span>").append(this.title);
-        	var label = $("<p>").attr({"class":"label"}).append(span);
-        	if (jQuery.inArray(this.tags, tags) == -1 && this.tags != "")
-        	{
-        		tags.push(this.tags);
-        	}
+            var markup = new flickr.imageBox(this).build();
+            $("#container").append(markup);
 
-        	$("<div>").attr({"class":"item " + this.tags}).append(imgtag).append(label).appendTo("#container");
-			});
+            if (jQuery.inArray(this.tags, tags) == -1 && this.tags !== "")
+            {
+                tags.push(this.tags);
+            }            
+		});
 
 	// Build up the list of tags for filtering
     for(var i =0; i<tags.length; i++){
-    	$("ul#taglist").append("<li><a href='#' id='." +  tags[i] + "''>" + tags[i] + "</a>");
+        $("ul#taglist").append("<li><a href='#' id='." +  tags[i] + "''>" + tags[i] + "</a>");
     }     
 
     // Run isotope
     $("#container").imagesLoaded( function() { 
         $('#container').isotope({
-	    	itemSelector : '.item',
-	    	animationOptions: {
-		    	duration: 750,
-		    	easing: 'linear',
-		    	queue: false
+            itemSelector : '.item',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
 			}	
 		});
     });
+
 });
