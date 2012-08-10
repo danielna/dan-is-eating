@@ -11,7 +11,7 @@
 
 <body>
 
-	<img id="ralph" src="img/ralph_inverse.png" title="Me fail English? That's unpossible."/>
+	<div id="about-link">about</div>
 
 	<div id="header">
 		<h1>dan is eating</h1>
@@ -19,10 +19,10 @@
 			I kind of hate <a href="http://www.flickr.com/photos/daniseating" title="daniseating" target="_blank">flickr's interface</a>.  I'd rather have an easier means of getting to the photos of food I'm uploading from my iPhone.
 		</p>
 		<p>
-			Using the <a href="https://secure.flickr.com/services/api/" title="flickr API" target="_blank">flickr API</a> and the <a href="https://github.com/desandro/isotope" target="_blank">jQuery isotope library</a> for the pinterest-esque layout below.  CSS is written in <a href="http://sass-lang.com/" title="sass-lang.com" target="_blank">Sass</a> with the help of <a href="http://compass-style.org/" title="compass-style.org" target="_blank">Compass</a>, for no real reason other than I think they're cool.
+			Using the <a href="https://secure.flickr.com/services/api/" title="flickr API" target="_blank">flickr API</a> and the <a href="https://github.com/desandro/isotope" target="_blank">jQuery isotope library</a> for the pinterest-esque layout below.  CSS is written in <a href="http://sass-lang.com/" title="sass-lang.com" target="_blank">Sass</a> with the help of <a href="http://compass-style.org/" title="compass-style.org" target="_blank">Compass</a>.  <a href="http://www.handlebarsjs.com" title="Handlebarsjs.com" target="_blank">Handlebars.js</a> is used to render some JavaScript.
 		</p>
 		<p>
-			Hover an image to view its name.  Keep hovering for the description.  Click it to open it on flickr in a new window, primarily to see it in a higher resolution.  Use the tags to filter.
+			Hover an image to view the restaurant.  Click an image to view the meal description, as well as a link to the photo on flickr to see the image in a higher resolution.  Use the buttons at the top to filter between tags.
 		</p>
 		<p>
 			I mess with this page whenever I'm bored, so it will be sporadically updated. View the source on <a href="https://github.com/danielna/dan-is-eating" target="_blank">github.</a> 
@@ -57,19 +57,27 @@
 			$("#container").isotope({ filter: activeTag });
 		});
 
-		$("div.item a").live("mouseenter", function() {
+		$("div.item img").live("mouseenter", function() {
 			$(this).next('.label').slideDown('slow');
 		});
 
-		$("#ralph").live("click", function(event) {
-			$("#ralph").fadeOut(function() {
+		$("div.item img").live("click", function() {
+			$(this).siblings('.metadata').fadeIn('slow');
+		});
+
+		$("div.item .metadata").live("click", function() {
+			$(this).fadeOut('slow');
+		});
+
+		$("#about-link").live("click", function(event) {
+			$("#about-link").fadeOut(function() {
 				$("#header").slideDown("slow");
 			});
 		});
 
 		$("#collapse").live("click", function(event) {
 			$("#header").slideUp("slow", function() {
-				$("#ralph").fadeIn();
+				$("#about-link").fadeIn();
 			});
 		});
 	});

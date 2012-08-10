@@ -1,5 +1,5 @@
 html
-    background-color: #000
+    background: url(../img/bg_argyle.png) repeat scroll 0 0
 
 body
     background: url(../img/bg_plaid.png) repeat scroll 0 0 #fff
@@ -9,12 +9,13 @@ body
     padding: 0px 20px
     margin: 0px auto
     position: relative
-    #ralph
+    #about-link
         position: absolute
         top: -20px
-        right: -30px
+        right: 0px
         cursor: pointer
         z-index: 10000
+        color: #fff
 
 div#header
     position: relative
@@ -78,10 +79,11 @@ div#container
         margin: 0px 10px 10px 0px
         float: left
         position: relative
+        overflow: hidden
         p.label 
             position: absolute
             display: none
-            bottom: 4px
+            bottom: 0px
             margin: 0px
             padding: 5px 0px 10px 10px
             width: 230px
@@ -95,11 +97,37 @@ div#container
                 text-align: left
                 text-shadow: 1px 2px 5px #000000
                 filter: dropshadow(color=#000000, offx=1, offy=2)
-        a
+        img
             display: block
-            text-align: center
-            img
-                margin: 0 auto
+            margin: 0 auto
+            cursor: pointer
+        .metadata
+            position: absolute
+            display: none
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            padding: 5px
+            background-color: rgba(255,255,255,0.9)
+            cursor: pointer
+            p
+                color: #000
+                font-family: "Helvetica"
+                font-size: 14px
+                font-weight: 400
+                line-height: 20px
+                width: 98%
+                margin: 0px
+                filter: dropshadow(color=#fff, offx=1, offy=2)
+            a.goFlickr
+                position: absolute
+                bottom: 10px
+                right: 10px
+                text-decoration: none
+                font-family: "Helvetica"
+                font-weight: bold
+
 
 .clear  
     clear: both
