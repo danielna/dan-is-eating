@@ -5,7 +5,7 @@ html {
 
 /* line 4, ../sass/main.sass */
 body {
-  background: url(../img/bg_plaid.png) repeat scroll 0 0 white;
+  background: none;
   color: black;
   font-family: "Helvetica Neue", Helvetica;
   width: 990px;
@@ -25,6 +25,7 @@ body #about-link {
 
 /* line 20, ../sass/main.sass */
 div#header {
+  background: url(../img/bg_plaid.png) repeat scroll 0 0 white;
   position: relative;
   display: none;
   border-left: 3px solid #999999;
@@ -32,12 +33,12 @@ div#header {
   border-bottom: 3px solid #999999;
   padding: 10px 20px;
 }
-/* line 27, ../sass/main.sass */
+/* line 28, ../sass/main.sass */
 div#header p {
   margin: 10px 0;
   font-size: 14px;
 }
-/* line 30, ../sass/main.sass */
+/* line 31, ../sass/main.sass */
 div#header a#collapse {
   position: absolute;
   bottom: 0;
@@ -46,7 +47,7 @@ div#header a#collapse {
   font-weight: bold;
 }
 
-/* line 37, ../sass/main.sass */
+/* line 38, ../sass/main.sass */
 h1 {
   text-transform: uppercase;
   font-size: 32px;
@@ -54,22 +55,22 @@ h1 {
   padding: 0;
 }
 
-/* line 43, ../sass/main.sass */
+/* line 44, ../sass/main.sass */
 div#tags {
   margin-bottom: 20px;
 }
-/* line 45, ../sass/main.sass */
+/* line 46, ../sass/main.sass */
 div#tags ul li {
   display: inline;
   float: left;
   list-style-type: none;
   margin-left: 15px;
 }
-/* line 50, ../sass/main.sass */
+/* line 51, ../sass/main.sass */
 div#tags ul li:first-child {
   margin-left: 0px;
 }
-/* line 52, ../sass/main.sass */
+/* line 53, ../sass/main.sass */
 div#tags a {
   background: none repeat scroll 0 0 #e3e3e3;
   border: 1px solid #bbbbbb;
@@ -83,26 +84,26 @@ div#tags a {
   width: 150px;
   text-decoration: none;
 }
-/* line 64, ../sass/main.sass */
+/* line 65, ../sass/main.sass */
 div#tags a:hover {
   background: none repeat scroll 0 0 #d9d9d9;
   box-shadow: 0 0 1px 1px #eaeaea inset;
   color: #222222;
   cursor: pointer;
 }
-/* line 69, ../sass/main.sass */
+/* line 70, ../sass/main.sass */
 div#tags a:active {
   background: none repeat scroll 0 0 #d0d0d0;
   box-shadow: 0 0 1px 1px #e3e3e3 inset;
   color: black;
 }
 
-/* line 74, ../sass/main.sass */
+/* line 75, ../sass/main.sass */
 div#container {
   margin-top: 10px;
   width: 1000px;
 }
-/* line 77, ../sass/main.sass */
+/* line 78, ../sass/main.sass */
 div#container .item {
   min-width: 240px;
   margin: 0px 10px 10px 0px;
@@ -110,7 +111,7 @@ div#container .item {
   position: relative;
   overflow: hidden;
 }
-/* line 83, ../sass/main.sass */
+/* line 84, ../sass/main.sass */
 div#container .item p.label {
   position: absolute;
   display: none;
@@ -121,7 +122,7 @@ div#container .item p.label {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.3);
 }
-/* line 92, ../sass/main.sass */
+/* line 93, ../sass/main.sass */
 div#container .item p.label span {
   max-width: 205px;
   color: white;
@@ -131,13 +132,13 @@ div#container .item p.label span {
   text-shadow: 1px 2px 5px black;
   filter: dropshadow(color=black, offx=1, offy=2);
 }
-/* line 100, ../sass/main.sass */
+/* line 101, ../sass/main.sass */
 div#container .item img {
   display: block;
   margin: 0 auto;
   cursor: pointer;
 }
-/* line 104, ../sass/main.sass */
+/* line 105, ../sass/main.sass */
 div#container .item .metadata {
   position: absolute;
   display: none;
@@ -149,7 +150,7 @@ div#container .item .metadata {
   background-color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
 }
-/* line 114, ../sass/main.sass */
+/* line 115, ../sass/main.sass */
 div#container .item .metadata p {
   color: black;
   font-family: "Helvetica";
@@ -160,7 +161,7 @@ div#container .item .metadata p {
   margin: 0px;
   filter: dropshadow(color=white, offx=1, offy=2);
 }
-/* line 123, ../sass/main.sass */
+/* line 124, ../sass/main.sass */
 div#container .item .metadata a.goFlickr {
   position: absolute;
   bottom: 10px;
@@ -170,24 +171,24 @@ div#container .item .metadata a.goFlickr {
   font-weight: bold;
 }
 
-/* line 132, ../sass/main.sass */
+/* line 133, ../sass/main.sass */
 .clear {
   clear: both;
 }
 
-/* line 135, ../sass/main.sass */
+/* line 136, ../sass/main.sass */
 .isotope-item {
   z-index: 2;
 }
 
-/* line 138, ../sass/main.sass */
+/* line 139, ../sass/main.sass */
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
 }
 
 /*** Isotope CSS3 transitions *** */
-/* line 144, ../sass/main.sass */
+/* line 145, ../sass/main.sass */
 .isotope, .isotope .isotope-item {
   -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
@@ -196,7 +197,7 @@ div#container .item .metadata a.goFlickr {
   transition-duration: 0.8s;
 }
 
-/* line 152, ../sass/main.sass */
+/* line 153, ../sass/main.sass */
 .isotope {
   -webkit-transition-property: height, width;
   -moz-transition-property: height, width;
@@ -205,7 +206,7 @@ div#container .item .metadata a.goFlickr {
   transition-property: height, width;
 }
 
-/* line 160, ../sass/main.sass */
+/* line 161, ../sass/main.sass */
 .isotope .isotope-item {
   -webkit-transition-property: -webkit-transform, opacity;
   -moz-transition-property: -moz-transform, opacity;
@@ -215,7 +216,7 @@ div#container .item .metadata a.goFlickr {
 }
 
 /*** disabling Isotope CSS3 transitions *** */
-/* line 170, ../sass/main.sass */
+/* line 171, ../sass/main.sass */
 .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
   -webkit-transition-duration: 0s;
   -moz-transition-duration: 0s;
