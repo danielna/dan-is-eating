@@ -61,7 +61,7 @@
 
         // Build up the list of tags for filtering
         for(var i =0; i < tags.length; i++){
-            $("ul#taglist").append("<li><a href='#' id='." +  tags[i] + "''>" + tags[i] + "</a>");
+            $("ul#taglist").append("<li><a href='javascript:;' id='." +  tags[i] + "''>" + tags[i] + "</a>");
         }     
 
         // Run isotope

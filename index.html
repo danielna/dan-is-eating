@@ -31,12 +31,12 @@
 			<img src="img/ralph.gif"/>
 		</p>
 
-		<a id="collapse" href="#">^ collapse</a>
+		<a id="collapse" href="javascript:;">^ collapse</a>
 	</div>
 
 	<div id="tags">
 		<ul id="taglist">
-			<li><a id="*" href="#">show all</a></li>
+			<li><a id="*" href="javascript:;">show all</a></li>
 		</ul>
 		<div class="clear"></div>
 	</div>
@@ -70,12 +70,14 @@
 		});
 
 		$("#about-link").live("click", function(event) {
+			event.preventDefault();
 			$("#about-link").fadeOut(function() {
 				$("#header").slideDown("slow");
 			});
 		});
 
 		$("#collapse").live("click", function(event) {
+			event.preventDefault();
 			$("#header").slideUp("slow", function() {
 				$("#about-link").fadeIn();
 			});
