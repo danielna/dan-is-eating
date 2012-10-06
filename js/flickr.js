@@ -4,6 +4,7 @@
 
     var flickr = {};
 
+    // Should probably remove these, but... whatever.
     flickr.ajaxParams = {
         key: "1684af1009448d6b66290bd7dedac4e3",
         user_id: "80451209@N04",

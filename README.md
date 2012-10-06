@@ -5,6 +5,4 @@ Mucking around with the flickr API.  Trying to visualize [this page](https://sec
 
 Also using [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/) for CSS.  Using [handlebars.js](http://handlebarsjs.com/) for javascript templating.
 
-The "Ralph Wiggum" motif is solely attributable to me finding the animated gif. But seriously, who doesn't like Ralph??
-
 View a live version [here](http://www.danielna.com/daniseating/).
