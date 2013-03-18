@@ -55,7 +55,10 @@
             $("#container").append(markup);
 
             if (jQuery.inArray(this.tags, tags) == -1 && this.tags !== "") {
-                tags.push(this.tags);
+                if (this.tags.indexOf("uploaded:by=flickrmobile flickriosapp:filter=nofilter") == -1){
+                    console.log("tag:", this.tags);
+                    tags.push(this.tags);
+                }
             }     
         });
 
